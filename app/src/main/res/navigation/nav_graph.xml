@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/amountInputFragment">
+
+    <fragment
+        android:id="@+id/amountInputFragment"
+        android:name="com.mollea.testgeopagos.presentation.ui.fragments.AmountInputFragment"
+        android:label="fragment_amount_input"
+        tools:layout="@layout/fragment_amount_input" >
+        <action
+            android:id="@+id/action_amountInputFragment_to_paymentMethodsListFragment"
+            app:destination="@id/paymentMethodsListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/installmentsListFragment"
+        android:name="com.mollea.testgeopagos.presentation.ui.fragments.InstallmentsListFragment"
+        android:label="fragment_installments_list"
+        tools:layout="@layout/fragment_installments_list" >
+        <action
+            android:id="@+id/action_installmentsListFragment_to_successFragment"
+            app:destination="@id/successFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/banksListFragment"
+        android:name="com.mollea.testgeopagos.presentation.ui.fragments.BanksListFragment"
+        android:label="fragment_banks_list"
+        tools:layout="@layout/fragment_banks_list" >
+        <action
+            android:id="@+id/action_banksListFragment_to_installmentsListFragment"
+            app:destination="@id/installmentsListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/paymentMethodsListFragment"
+        android:name="com.mollea.testgeopagos.presentation.ui.fragments.PaymentMethodsListFragment"
+        android:label="fragment_payment_methods_list"
+        tools:layout="@layout/fragment_payment_methods_list" >
+        <action
+            android:id="@+id/action_paymentMethodsListFragment_to_banksListFragment"
+            app:destination="@id/banksListFragment" />
+        <argument
+            android:name="amount"
+            app:argType="string"
+            android:defaultValue="0" />
+    </fragment>
+    <fragment
+        android:id="@+id/successFragment"
+        android:name="com.mollea.testgeopagos.presentation.ui.fragments.SuccessFragment"
+        android:label="fragment_success"
+        tools:layout="@layout/fragment_success" >
+        <action
+            android:id="@+id/action_successFragment_to_amountInputFragment"
+            app:destination="@id/amountInputFragment" />
+    </fragment>
+</navigation>
