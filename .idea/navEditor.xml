@@ -13,8 +13,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-349" />
-                            <option name="y" value="-112" />
+                            <option name="x" value="7" />
+                            <option name="y" value="19" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -34,12 +34,17 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="70" />
-                            <option name="y" value="-114" />
+                            <option name="x" value="500" />
+                            <option name="y" value="-6" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
+                            <entry key="action_banksListFragment_to_errorStateFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="action_banksListFragment_to_installmentsListFragment">
                               <value>
                                 <LayoutPositions />
@@ -50,17 +55,34 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="errorStateFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="420" />
+                            <option name="y" value="657" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="installmentsListFragment">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="277" />
-                            <option name="y" value="-92" />
+                            <option name="x" value="747" />
+                            <option name="y" value="-11" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
+                            <entry key="action_installmentsListFragment_to_errorStateFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="action_installmentsListFragment_to_successFragment">
                               <value>
                                 <LayoutPositions />
@@ -76,13 +98,18 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-126" />
-                            <option name="y" value="-108" />
+                            <option name="x" value="250" />
+                            <option name="y" value="-12" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
                             <entry key="action_paymentMethodsListFragment_to_banksListFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_paymentMethodsListFragment_to_errorStateFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -97,13 +124,18 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="285" />
-                            <option name="y" value="221" />
+                            <option name="x" value="988" />
+                            <option name="y" value="241" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
                             <entry key="action_successFragment_to_amountInputFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_successFragment_to_errorStateFragment">
                               <value>
                                 <LayoutPositions />
                               </value>

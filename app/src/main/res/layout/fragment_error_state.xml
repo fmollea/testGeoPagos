@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="view"
+            type="com.mollea.testgeopagos.presentation.ui.fragments.ErrorStateFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/background_light"
+        tools:context=".presentation.ui.fragments.ErrorStateFragment">
+
+        <ImageView
+            android:id="@+id/lottieAnimation"
+            android:layout_width="@dimen/dimen_ui_200"
+            android:layout_height="@dimen/dimen_ui_200"
+            android:layout_marginStart="@dimen/dimen_ui_16"
+            android:layout_marginEnd="@dimen/dimen_ui_16"
+            android:layout_marginBottom="@dimen/dimen_ui_124"
+            android:src="@mipmap/img_error"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="@dimen/dimen_ui_0"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_ui_32"
+            android:layout_marginTop="@dimen/dimen_ui_24"
+            android:layout_marginEnd="@dimen/dimen_ui_32"
+            android:gravity="center"
+            android:text="@string/error_ocurred"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lottieAnimation" />
+
+        <Button
+            android:id="@+id/btRerty"
+            android:layout_width="@dimen/dimen_ui_0"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_ui_32"
+            android:layout_marginTop="@dimen/dimen_ui_24"
+            android:layout_marginEnd="@dimen/dimen_ui_32"
+            android:background="@color/colorPrimary"
+            android:onClick="@{() -> view.retryAction()}"
+            android:text="@string/retry"
+            android:textColor="@android:color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

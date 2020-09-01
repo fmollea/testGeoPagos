@@ -1,14 +1,15 @@
 package com.mollea.testgeopagos.data.repository.data
 
+
 import com.google.gson.annotations.SerializedName
 
 data class PayerCost(
     @SerializedName("discount_rate")
     val discountRate: Int,
     @SerializedName("installment_amount")
-    val installmentAmount: Int,
+    val installmentAmount: Double,
     @SerializedName("installment_rate")
-    val installmentRate: Int,
+    val installmentRate: Double,
     @SerializedName("installment_rate_collector")
     val installmentRateCollector: List<String>,
     @SerializedName("installments")
@@ -26,5 +27,5 @@ data class PayerCost(
     @SerializedName("reimbursement_rate")
     val reimbursementRate: Any,
     @SerializedName("total_amount")
-    val totalAmount: Int
+    val totalAmount: Double
 )

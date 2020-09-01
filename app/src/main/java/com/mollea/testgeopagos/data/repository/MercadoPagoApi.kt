@@ -1,7 +1,7 @@
 package com.mollea.testgeopagos.data.repository
 
-import com.mollea.testgeopagos.data.repository.data.InstallmentsResponse
 import com.mollea.testgeopagos.data.repository.data.CardIssuersResponse
+import com.mollea.testgeopagos.data.repository.data.InstallmentsResponse
 import com.mollea.testgeopagos.data.repository.data.PaymentMethodsResponse
 import retrofit2.Response
 import retrofit2.http.GET
@@ -14,17 +14,17 @@ interface MercadoPagoApi {
         @Query("public_key") publicKey: String
     ): Response<PaymentMethodsResponse>
 
-    @GET("card_issuers")
+    @GET("payment_methods/card_issuers")
     suspend fun getCardIssuers(
         @Query("public_key") publicKey: String,
         @Query("payment_method_id") paymentMethodId: String
     ): Response<CardIssuersResponse>
 
-    @GET("installments")
+    @GET("payment_methods/installments")
     suspend fun getInstallments(
         @Query("public_key") publicKey: String,
         @Query("payment_method_id") paymentMethodId: String,
         @Query("amount") amount: String,
-        @Query("issuer_id") issuerId: String
+        @Query("issuer.id") issuerId: String
     ): Response<InstallmentsResponse>
 }

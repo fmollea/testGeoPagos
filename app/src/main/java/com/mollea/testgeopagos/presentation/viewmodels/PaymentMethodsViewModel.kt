@@ -29,7 +29,7 @@ class PaymentMethodsViewModel(
             val data = withContext(contextProvider.IO) {
                 repository.getPaymentMethods()
             }
-            stateLiveData.value = PaymentMetohdViewState.SuccessSong(
+            stateLiveData.value = PaymentMetohdViewState.Success(
                 data.body()?.toPaymentMethod() ?: emptyList()
             )
         }
@@ -38,6 +38,6 @@ class PaymentMethodsViewModel(
     sealed class PaymentMetohdViewState {
         object Loading : PaymentMetohdViewState()
         data class Error(val throwable: Throwable) : PaymentMetohdViewState()
-        data class SuccessSong(val data: List<PaymentMethod>) : PaymentMetohdViewState()
+        data class Success(val data: List<PaymentMethod>) : PaymentMetohdViewState()
     }
 }

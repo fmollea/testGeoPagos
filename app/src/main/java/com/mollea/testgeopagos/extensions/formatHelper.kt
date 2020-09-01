@@ -1,4 +1,4 @@
-package com.mollea.testgeopagos.helpers
+package com.mollea.testgeopagos.extensions
 
 import java.text.NumberFormat
 import java.util.*
