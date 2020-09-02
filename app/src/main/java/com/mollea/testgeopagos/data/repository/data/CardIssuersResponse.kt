@@ -8,7 +8,7 @@ class CardIssuersResponse : ArrayList<IssuerResponseItem>() {
         CardIssuer(
             id = item.id,
             name = item.name,
-            thumbnail = item.thumbnail
+            thumbnail = item.secureThumbnail
         )
     }
 }

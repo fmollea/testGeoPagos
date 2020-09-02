@@ -34,7 +34,9 @@ class CardIssuerAdapter (
         holder.binding.ivImage.loadUrlImage(item.thumbnail, fragment.requireContext())
 
         holder.itemView.setOnClickListener {
-            val action = CardIssuersFragmentDirections.actionBanksListFragmentToInstallmentsListFragment()
+            val action = CardIssuersFragmentDirections.actionBanksListFragmentToInstallmentsListFragment(
+                fragment.amount, fragment.paymentMethod, item
+            )
             fragment.findNavController().navigate(action)
         }
     }

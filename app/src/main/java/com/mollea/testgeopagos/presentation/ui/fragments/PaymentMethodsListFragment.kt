@@ -58,7 +58,6 @@ class PaymentMethodsListFragment : Fragment() {
     }
 
     private fun initView() {
-        (requireActivity() as MainActivity).title = "Métodos de pago"
         adapter = PaymentMethodAdapter(this, listOf())
         binding.rvPaymentMethods.layoutManager = LinearLayoutManager(requireActivity().applicationContext)
         binding.rvPaymentMethods.adapter = adapter

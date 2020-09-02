@@ -15,10 +15,10 @@
         android:layout_height="match_parent">
 
         <androidx.cardview.widget.CardView
-            android:layout_width="0dp"
+            android:layout_width="@dimen/dimen_ui_0"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dimen_ui_32"
-            android:layout_marginTop="150dp"
+            android:layout_marginTop="@dimen/dimen_ui_150"
             android:layout_marginEnd="@dimen/dimen_ui_32"
             android:elevation="@dimen/dimen_ui_16"
             app:layout_constraintEnd_toEndOf="parent"
@@ -38,7 +38,7 @@
                     android:layout_marginTop="@dimen/dimen_ui_16"
                     android:layout_marginEnd="@dimen/dimen_ui_16"
                     android:text="@string/enter_amount"
-                    android:textSize="@dimen/body_size_14"
+                    android:textSize="@dimen/text_size_16"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
@@ -54,9 +54,9 @@
                     android:layout_marginEnd="@dimen/dimen_ui_16"
                     android:layout_marginBottom="@dimen/dimen_ui_16"
                     android:ems="10"
-                    android:inputType="textPersonName"
+                    android:inputType="numberDecimal"
                     android:text="@={view.amount}"
-                    android:textSize="@dimen/body_size_16"
+                    android:textSize="@dimen/text_size"
                     app:layout_constraintBottom_toTopOf="@+id/button"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

@@ -8,7 +8,7 @@ class PaymentMethodsResponse : ArrayList<PaymentMethodsResponseItem>() {
         PaymentMethod(
             id = item.id,
             name = item.name,
-            thumbnail = item.thumbnail
+            thumbnail = item.secureThumbnail
         )
     }
 }

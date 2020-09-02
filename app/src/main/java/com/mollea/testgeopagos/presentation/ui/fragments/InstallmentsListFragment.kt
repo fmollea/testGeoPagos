@@ -5,15 +5,104 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.mollea.testgeopagos.R
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.mollea.testgeopagos.data.repository.MercadoPagoRepository
+import com.mollea.testgeopagos.databinding.FragmentInstallmentsListBinding
+import com.mollea.testgeopagos.domain.CardIssuer
+import com.mollea.testgeopagos.domain.Installment
+import com.mollea.testgeopagos.domain.PaymentMethod
+import com.mollea.testgeopagos.presentation.ui.adapters.InstallmentAdapter
+import com.mollea.testgeopagos.presentation.viewmodels.InstallmentViewModel
+import com.mollea.testgeopagos.presentation.viewmodels.InstallmentViewModelFactory
+import com.mollea.testgeopagos.presentation.viewmodels.coroutine.CoroutineContextProvider
 
 class InstallmentsListFragment : Fragment() {
+
+    private lateinit var viewModel: InstallmentViewModel
+    private lateinit var binding: FragmentInstallmentsListBinding
+    private lateinit var adapter: InstallmentAdapter
+    lateinit var amount: String
+    lateinit var paymentMethod: PaymentMethod
+    var issuer: CardIssuer? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let {
+            amount = InstallmentsListFragmentArgs.fromBundle(it).amount
+            paymentMethod = InstallmentsListFragmentArgs.fromBundle(it).paymentMethod
+            issuer = InstallmentsListFragmentArgs.fromBundle(it).issuerCard
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_installments_list, container, false)
+        binding = FragmentInstallmentsListBinding.inflate(
+            inflater, container, false
+        )
+        return binding.root
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        val repository = MercadoPagoRepository()
+        val contextProvider = CoroutineContextProvider()
+        val factory = InstallmentViewModelFactory(repository, contextProvider)
+
+        viewModel = ViewModelProviders.of(this, factory).get(InstallmentViewModel::class.java)
+
+        observeViewModel()
+        initView()
+    }
+
+    private fun initView() {
+        adapter = InstallmentAdapter(this, listOf())
+        binding.rvInstallmentList.layoutManager = LinearLayoutManager(requireActivity().applicationContext)
+        binding.rvInstallmentList.adapter = adapter
+
+        getInstallments()
+    }
+
+    private fun getInstallments() {
+        viewModel.getInstallments(paymentMethod.id, amount, issuer?.id ?: "")
+    }
+
+    private fun observeViewModel() {
+        val installmentObserver = Observer<InstallmentViewModel.InstallmentViewState> {
+            when(it) {
+                is InstallmentViewModel.InstallmentViewState.Loading -> showLoading()
+                is InstallmentViewModel.InstallmentViewState.Success -> drawList(it.data)
+                is InstallmentViewModel.InstallmentViewState.Error -> navToErrorState(it.throwable)
+            }
+        }
+
+        viewModel.getStateLiveData().observe(viewLifecycleOwner, installmentObserver)
+    }
+
+    private fun navToErrorState(throwable: Throwable) {
+        val action = InstallmentsListFragmentDirections.actionInstallmentsListFragmentToErrorStateFragment()
+        findNavController().navigate(action)
+    }
+
+    private fun showLoading() {
+        binding.rvInstallmentList.visibility = View.GONE
+        binding.pbLoading.visibility = View.VISIBLE
+    }
+
+    private fun hideLoading() {
+        binding.pbLoading.visibility = View.GONE
+    }
+
+    private fun drawList(list: List<Installment>) {
+        adapter.items = list
+        adapter.notifyDataSetChanged()
+
+        hideLoading()
+        binding.rvInstallmentList.visibility = View.VISIBLE
     }
 }

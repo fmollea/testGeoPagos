@@ -35,7 +35,7 @@ class PaymentMethodAdapter (
 
         holder.itemView.setOnClickListener {
             val action = PaymentMethodsListFragmentDirections.actionPaymentMethodsListFragmentToBanksListFragment(
-                fragment.amount, item.id)
+                fragment.amount, item)
             fragment.findNavController().navigate(action)
         }
     }
