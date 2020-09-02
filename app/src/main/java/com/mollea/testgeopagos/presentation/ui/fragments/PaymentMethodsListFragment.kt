@@ -6,26 +6,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.mollea.testgeopagos.R
 import com.mollea.testgeopagos.data.repository.MercadoPagoRepository
 import com.mollea.testgeopagos.databinding.FragmentPaymentMethodsListBinding
 import com.mollea.testgeopagos.domain.PaymentMethod
-import com.mollea.testgeopagos.presentation.ui.activities.MainActivity
 import com.mollea.testgeopagos.presentation.ui.adapters.PaymentMethodAdapter
 import com.mollea.testgeopagos.presentation.viewmodels.PaymentMethodsViewModel
-import com.mollea.testgeopagos.presentation.viewmodels.PaymentMethodsViewModelFactory
 import com.mollea.testgeopagos.presentation.viewmodels.coroutine.CoroutineContextProvider
-import kotlinx.android.synthetic.main.activity_main.view.*
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class PaymentMethodsListFragment : Fragment() {
 
-    private lateinit var viewModel: PaymentMethodsViewModel
+    private val viewModel by activityViewModels<PaymentMethodsViewModel>()
     private lateinit var binding: FragmentPaymentMethodsListBinding
     private lateinit var adapter: PaymentMethodAdapter
     lateinit var amount: String
@@ -47,12 +45,6 @@ class PaymentMethodsListFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
-        val repository = MercadoPagoRepository()
-        val contextProvider = CoroutineContextProvider()
-        val factory =  PaymentMethodsViewModelFactory(repository, contextProvider)
-
-        viewModel = ViewModelProviders.of(this, factory).get(PaymentMethodsViewModel::class.java)
         observeViewModel()
         initView()
     }
