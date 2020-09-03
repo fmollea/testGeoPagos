@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.mollea.testgeopagos.databinding.FragmentAmountInputBinding
-import com.mollea.testgeopagos.extensions.formatCurrency
 
 class AmountInputFragment : Fragment() {
 
@@ -19,14 +18,10 @@ class AmountInputFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        amount = ""
+        amount = "0"
         binding = FragmentAmountInputBinding.inflate(inflater, container, false)
         binding.view = this
         return binding.root
-    }
-
-    fun formatAmount() {
-        amount = formatCurrency(amount)
     }
 
     fun buttonAction() {

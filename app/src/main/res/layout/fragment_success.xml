@@ -93,7 +93,8 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/ic_launcher_background" />
+                        app:srcCompat="@mipmap/ic_default"
+                        app:loadUrl="@{view.paymentMethod.thumbnail}"/>
 
                     <TextView
                         android:layout_width="@dimen/dimen_ui_0"
@@ -139,7 +140,8 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/ic_launcher_background" />
+                        app:srcCompat="@mipmap/ic_default"
+                        app:loadUrl="@{view.issuer != null ? view.issuer.thumbnail : view.DEFAULT}"/>
 
                     <TextView
                         android:layout_width="@dimen/dimen_ui_0"

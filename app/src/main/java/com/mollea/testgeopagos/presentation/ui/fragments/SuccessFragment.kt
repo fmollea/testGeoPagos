@@ -10,7 +10,6 @@ import com.mollea.testgeopagos.databinding.FragmentSuccessBinding
 import com.mollea.testgeopagos.domain.CardIssuer
 import com.mollea.testgeopagos.domain.Installment
 import com.mollea.testgeopagos.domain.PaymentMethod
-import com.mollea.testgeopagos.extensions.loadUrlImage
 
 class SuccessFragment : Fragment() {
 
@@ -39,18 +38,6 @@ class SuccessFragment : Fragment() {
         )
         binding.view = this
         return binding.root
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        loadImages()
-    }
-
-    private fun loadImages() {
-        binding.ivImagePayment.loadUrlImage(paymentMethod.thumbnail, requireContext())
-        issuer?.let {
-            binding.ivImageIssuer.loadUrlImage(it.thumbnail, requireContext())
-        }
     }
 
     fun navToAmountInputFragment() {

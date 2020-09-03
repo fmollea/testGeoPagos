@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mollea.testgeopagos.R
 import com.mollea.testgeopagos.databinding.ItemPaymentMethodRowBinding
 import com.mollea.testgeopagos.domain.PaymentMethod
-import com.mollea.testgeopagos.extensions.loadUrlImage
 import com.mollea.testgeopagos.presentation.ui.fragments.PaymentMethodsListFragment
 import com.mollea.testgeopagos.presentation.ui.fragments.PaymentMethodsListFragmentDirections
 
@@ -29,7 +28,6 @@ class PaymentMethodAdapter (
     override fun onBindViewHolder(holder: PaymentMethodViewHolder, position: Int) {
         val item = items[position]
         holder.binding.item = item
-        holder.binding.ivImage.loadUrlImage(item.thumbnail, fragment.requireContext())
 
         holder.itemView.setOnClickListener {
             val action = PaymentMethodsListFragmentDirections.actionPaymentMethodsListFragmentToBanksListFragment(

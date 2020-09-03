@@ -41,7 +41,8 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_launcher_background" />
+                    app:loadUrl="@{item.thumbnail}"
+                    app:srcCompat="@mipmap/ic_default" />
 
                 <TextView
                     android:id="@+id/tvDescription"
