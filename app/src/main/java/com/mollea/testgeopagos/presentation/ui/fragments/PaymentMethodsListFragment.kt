@@ -8,17 +8,13 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.mollea.testgeopagos.data.repository.MercadoPagoRepository
 import com.mollea.testgeopagos.databinding.FragmentPaymentMethodsListBinding
 import com.mollea.testgeopagos.domain.PaymentMethod
 import com.mollea.testgeopagos.presentation.ui.adapters.PaymentMethodAdapter
 import com.mollea.testgeopagos.presentation.viewmodels.PaymentMethodsViewModel
-import com.mollea.testgeopagos.presentation.viewmodels.coroutine.CoroutineContextProvider
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class PaymentMethodsListFragment : Fragment() {

@@ -1,7 +1,5 @@
 package com.mollea.testgeopagos.data.repository.data
 
-
-import com.google.gson.annotations.SerializedName
 import com.mollea.testgeopagos.domain.Installment
 
 class InstallmentsResponse : ArrayList<InstallmentsResponseItem>() {

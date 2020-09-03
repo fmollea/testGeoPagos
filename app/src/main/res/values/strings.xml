@@ -1,7 +1,6 @@
 <resources>
-    <string name="app_name">testGeoPagos</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_name">Test GP</string>
+
     <string name="enter_amount">Ingrese el monto a pagar:</string>
     <string name="next">Siguiente</string>
     <string name="error_ocurred">Ocurrió un error, vuelva a intentarlo</string>
@@ -12,4 +11,6 @@
     <string name="title_payment_method_fragment">Seleccione su medio de pago</string>
     <string name="tittle_succes_fragment">Pago acreditado</string>
     <string name="title_error_fragment">Error</string>
+    <string name="success_button_text">Seguir pagando</string>
+    <string name="success_payment">Su pago se acreditó correctamente</string>
 </resources>

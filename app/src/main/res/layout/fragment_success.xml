@@ -1,14 +1,218 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".presentation.ui.fragments.SuccessFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <data>
+        <variable
+            name="view"
+            type="com.mollea.testgeopagos.presentation.ui.fragments.SuccessFragment" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:fillViewport="true"
+        tools:context=".presentation.ui.fragments.SuccessFragment">
 
-</FrameLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewinfo"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_ui_0"
+                android:layout_marginStart="@dimen/dimen_ui_32"
+                android:layout_marginTop="@dimen/dimen_ui_32"
+                android:layout_marginEnd="@dimen/dimen_ui_32"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/ivCheck"
+                        android:layout_width="@dimen/dimen_ui_75"
+                        android:layout_height="@dimen/dimen_ui_75"
+                        android:layout_marginStart="@dimen/dimen_ui_16"
+                        android:layout_marginTop="@dimen/dimen_ui_16"
+                        android:layout_marginEnd="@dimen/dimen_ui_16"
+                        android:src="@mipmap/ic_check"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="@dimen/dimen_ui_0"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_ui_32"
+                        android:layout_marginTop="@dimen/dimen_ui_24"
+                        android:layout_marginEnd="@dimen/dimen_ui_32"
+                        android:layout_marginBottom="@dimen/dimen_ui_16"
+                        android:fontFamily="bold"
+                        android:gravity="center"
+                        android:text="@string/success_payment"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/text_size_20"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/ivCheck" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewPaymentMethod"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_ui_32"
+                android:layout_marginTop="@dimen/dimen_ui_24"
+                android:layout_marginEnd="@dimen/dimen_ui_32"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardViewinfo">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_ui_65">
+
+                    <ImageView
+                        android:id="@+id/ivImagePayment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dimen_ui_36"
+                        android:layout_marginStart="@dimen/dimen_ui_8"
+                        android:layout_marginTop="@dimen/dimen_ui_8"
+                        android:layout_marginBottom="@dimen/dimen_ui_8"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_launcher_background" />
+
+                    <TextView
+                        android:layout_width="@dimen/dimen_ui_0"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_ui_8"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="@dimen/dimen_ui_8"
+                        android:layout_marginBottom="@dimen/dimen_ui_8"
+                        android:gravity="center"
+                        android:text="@{view.paymentMethod.name}"
+                        android:textSize="@dimen/text_size"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/ivImagePayment"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardVievIssuer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_ui_32"
+                android:layout_marginTop="@dimen/dimen_ui_16"
+                android:layout_marginEnd="@dimen/dimen_ui_32"
+                android:visibility="@{view.issuer != null ? view.View.VISIBLE : view.View.GONE}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardViewPaymentMethod">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_ui_65">
+
+                    <ImageView
+                        android:id="@+id/ivImageIssuer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dimen_ui_36"
+                        android:layout_marginStart="@dimen/dimen_ui_8"
+                        android:layout_marginTop="@dimen/dimen_ui_8"
+                        android:layout_marginBottom="@dimen/dimen_ui_8"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_launcher_background" />
+
+                    <TextView
+                        android:layout_width="@dimen/dimen_ui_0"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_ui_8"
+                        android:layout_marginTop="@dimen/dimen_ui_8"
+                        android:layout_marginEnd="@dimen/dimen_ui_8"
+                        android:layout_marginBottom="@dimen/dimen_ui_8"
+                        android:gravity="center"
+                        android:text="@{view.issuer != null ? view.issuer.name : view.DEFAULT}"
+                        android:textSize="@dimen/text_size"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/ivImageIssuer"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardInstallment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_ui_32"
+                android:layout_marginTop="@dimen/dimen_ui_16"
+                android:layout_marginEnd="@dimen/dimen_ui_32"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.501"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardVievIssuer">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_ui_65">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_ui_8"
+                        android:layout_marginTop="@dimen/dimen_ui_8"
+                        android:layout_marginEnd="@dimen/dimen_ui_8"
+                        android:layout_marginBottom="@dimen/dimen_ui_8"
+                        android:text="@{view.installment.recomendedMessage}"
+                        android:gravity="center"
+                        android:textSize="@dimen/text_size"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:layout_width="@dimen/dimen_ui_0"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_ui_32"
+                android:layout_marginTop="@dimen/dimen_ui_16"
+                android:layout_marginEnd="@dimen/dimen_ui_32"
+                android:layout_marginBottom="@dimen/dimen_ui_24"
+                android:background="@color/colorPrimary"
+                android:onClick="@{() -> view.navToAmountInputFragment()}"
+                android:text="@string/success_button_text"
+                android:textColor="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardInstallment"
+                app:layout_constraintVertical_bias="1.0" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

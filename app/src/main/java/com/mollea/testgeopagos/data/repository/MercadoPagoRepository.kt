@@ -1,8 +1,5 @@
 package com.mollea.testgeopagos.data.repository
 
-import com.google.gson.GsonBuilder
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Inject
 
 class MercadoPagoRepository @Inject constructor(

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="text_size">18sp</dimen>
-    <dimen name="title_size_20">20sp</dimen>
+    <dimen name="text_size_20">20sp</dimen>
     <dimen name="text_size_16">16sp</dimen>
 
     <dimen name="dimen_ui_200">200dp</dimen>

@@ -7,20 +7,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mollea.testgeopagos.R
-import com.mollea.testgeopagos.data.repository.MercadoPagoRepository
 import com.mollea.testgeopagos.databinding.FragmentCardIssuersBinding
 import com.mollea.testgeopagos.domain.CardIssuer
 import com.mollea.testgeopagos.domain.PaymentMethod
 import com.mollea.testgeopagos.presentation.ui.adapters.CardIssuerAdapter
 import com.mollea.testgeopagos.presentation.viewmodels.CardIssuersViewModel
-import com.mollea.testgeopagos.presentation.viewmodels.coroutine.CoroutineContextProvider
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class CardIssuersFragment : Fragment() {

@@ -10,77 +10,83 @@
             type="com.mollea.testgeopagos.presentation.ui.fragments.AmountInputFragment"/>
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="@dimen/dimen_ui_0"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dimen_ui_32"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="@dimen/dimen_ui_32"
-            android:layout_marginBottom="16dp"
-            android:elevation="@dimen/dimen_ui_16"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="UnusedAttribute">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+            <androidx.cardview.widget.CardView
+                android:layout_width="@dimen/dimen_ui_0"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_ui_32"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="@dimen/dimen_ui_32"
+                android:layout_marginBottom="16dp"
+                android:elevation="@dimen/dimen_ui_16"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="UnusedAttribute">
 
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="@dimen/dimen_ui_0"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/dimen_ui_16"
-                    android:layout_marginTop="@dimen/dimen_ui_16"
-                    android:layout_marginEnd="@dimen/dimen_ui_16"
-                    android:text="@string/enter_amount"
-                    android:textSize="@dimen/text_size_16"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                <EditText
-                    android:id="@+id/editTextTextPersonName"
-                    android:layout_width="@dimen/dimen_ui_0"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/dimen_ui_16"
-                    android:layout_marginTop="@dimen/dimen_ui_16"
-                    android:layout_marginEnd="@dimen/dimen_ui_16"
-                    android:layout_marginBottom="@dimen/dimen_ui_16"
-                    android:ems="10"
-                    android:inputType="numberDecimal"
-                    android:text="@={view.amount}"
-                    android:textSize="@dimen/text_size"
-                    app:layout_constraintBottom_toTopOf="@+id/button"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView" />
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="@dimen/dimen_ui_0"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_ui_16"
+                        android:layout_marginTop="@dimen/dimen_ui_16"
+                        android:layout_marginEnd="@dimen/dimen_ui_16"
+                        android:text="@string/enter_amount"
+                        android:textSize="@dimen/text_size_16"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                <Button
-                    android:id="@+id/button"
-                    android:layout_width="@dimen/dimen_ui_0"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/dimen_ui_16"
-                    android:layout_marginEnd="@dimen/dimen_ui_16"
-                    android:layout_marginBottom="@dimen/dimen_ui_16"
-                    android:background="@color/colorPrimary"
-                    android:onClick="@{() -> view.buttonAction()}"
-                    android:text="@string/next"
-                    android:textColor="@color/colorWhiteText"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    <EditText
+                        android:id="@+id/editTextTextPersonName"
+                        android:layout_width="@dimen/dimen_ui_0"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_ui_16"
+                        android:layout_marginTop="@dimen/dimen_ui_16"
+                        android:layout_marginEnd="@dimen/dimen_ui_16"
+                        android:layout_marginBottom="@dimen/dimen_ui_16"
+                        android:ems="10"
+                        android:inputType="numberDecimal"
+                        android:text="@={view.amount}"
+                        android:textSize="@dimen/text_size"
+                        app:layout_constraintBottom_toTopOf="@+id/button"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
+                    <Button
+                        android:id="@+id/button"
+                        android:layout_width="@dimen/dimen_ui_0"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_ui_16"
+                        android:layout_marginEnd="@dimen/dimen_ui_16"
+                        android:layout_marginBottom="@dimen/dimen_ui_16"
+                        android:background="@color/colorPrimary"
+                        android:onClick="@{() -> view.buttonAction()}"
+                        android:text="@string/next"
+                        android:textColor="@color/colorWhiteText"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 </layout>

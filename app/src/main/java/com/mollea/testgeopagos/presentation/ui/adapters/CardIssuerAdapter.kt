@@ -3,7 +3,6 @@ package com.mollea.testgeopagos.presentation.ui.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.fragment.NavHostFragment.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.mollea.testgeopagos.R
@@ -12,7 +11,6 @@ import com.mollea.testgeopagos.domain.CardIssuer
 import com.mollea.testgeopagos.extensions.loadUrlImage
 import com.mollea.testgeopagos.presentation.ui.fragments.CardIssuersFragment
 import com.mollea.testgeopagos.presentation.ui.fragments.CardIssuersFragmentDirections
-import com.mollea.testgeopagos.presentation.ui.fragments.PaymentMethodsListFragmentDirections
 
 class CardIssuerAdapter (
     private val fragment: CardIssuersFragment,

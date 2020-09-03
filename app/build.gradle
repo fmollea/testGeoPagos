@@ -65,6 +65,8 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
 
+    kapt 'com.android.databinding:compiler:4.0.1'
+
     implementation 'com.google.dagger:dagger:2.24'
     kapt 'com.google.dagger:dagger-compiler:2.24'
 
